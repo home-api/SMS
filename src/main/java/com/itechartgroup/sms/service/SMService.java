@@ -59,7 +59,7 @@ public class SMService {
 
         boolean isVisitedEdge = visitedUsers.contains(sourceUser) && visitedUsers.contains(targetUser);
 
-        if (sourceUser == targetUser || isVisitedEdge) {
+        if (isVisitedEdge) {
             return;
         }
 
@@ -123,7 +123,7 @@ public class SMService {
     }
 
     private void addVertex(User newVertex, Graph<User, DefaultWeightedEdge> graph) {
-        Set<User> graphVertexes = graph.vertexSet();
+        Set<User> graphVertexes = new HashSet<>(graph.vertexSet());
 
         graph.addVertex(newVertex);
 
